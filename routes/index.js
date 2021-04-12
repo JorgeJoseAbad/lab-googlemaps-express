@@ -45,7 +45,9 @@ router.route('/')
 
 router.route('/new')
 	.get((req, res, next) => {
-		res.render('restaurants/new');
+		res.render('restaurants/new',{
+			API_KEY2:process.env.API_KEY
+		});
 	});
 
 router.route('/:restaurant_id')
