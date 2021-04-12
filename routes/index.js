@@ -9,7 +9,11 @@ router.route('/')
 	  	if (error) {
 	  		next(error);
 	  	} else {
-	  		res.render('restaurants/index', { restaurants,jsonRestaurants: JSON.stringify(restaurants) });
+	  		res.render('restaurants/index', {
+					restaurants,
+					jsonRestaurants: JSON.stringify(restaurants),
+					API_KEY2: process.env.API_KEY2
+				 });
 	  	}
 	  });
 	})
@@ -50,7 +54,11 @@ router.route('/:restaurant_id')
 			if (error) {
 				next(error);
 			} else {
-				res.render('restaurants/show', {restaurant,jsonRestaurant:JSON.stringify(restaurant)});
+				res.render('restaurants/show', {
+					restaurant,
+					jsonRestaurant:JSON.stringify(restaurant),
+					API_KEY2: process.env.API_KEY2
+				});
 			}
 		});
 	})
@@ -78,7 +86,10 @@ router.route('/:restaurant_id/edit')
 			if (error) {
 				next(error);
 			} else {
-				res.render('restaurants/update', { restaurant });
+				res.render('restaurants/update', {
+					restaurant,
+					API_KEY2: process.env.API_KEY2
+				 });
 			}
 		});
 	});
